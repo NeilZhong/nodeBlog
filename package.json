@@ -1,0 +1,23 @@
+{
+  "name": "nodeblog",
+  "version": "1.0.0",
+  "description": "a blog website build with node.js",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeilZhong/nodeBlog.git"
+  },
+  "author": "neilzhonghui@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NeilZhong/nodeBlog/issues"
+  },
+  "homepage": "https://github.com/NeilZhong/nodeBlog#readme"
+}
