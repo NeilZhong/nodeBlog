@@ -16,6 +16,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.16.1",
     "glob": "^6.0.4",
+    "gulp": "^3.9.1",
     "jade": "^1.11.0",
     "method-override": "^2.3.10",
     "mongoose": "^4.11.13",
@@ -29,7 +30,7 @@
     "gulp-livereload": "^3.8.0",
     "gulp-nodemon": "^2.0.2",
     "gulp-plumber": "^1.0.0",
-    "mocha": "^3.0.2",
+    "mocha": "^3.5.3",
     "nyc": "^10.0.0",
     "supertest": "^2.0.0"
   }

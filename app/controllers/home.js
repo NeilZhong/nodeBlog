@@ -1,7 +1,7 @@
 var express = require('express'),
   router = express.Router(),
   mongoose = require('mongoose'),
-  Article = mongoose.model('Article');
+  Blog = mongoose.model('Blog');
 
 module.exports = function (app) {
   app.use('/', router);
@@ -9,7 +9,6 @@ module.exports = function (app) {
 
 router.get('/', function (req, res, next) {
   Article.find(function (err, articles) {
-    if (err) return next(err);
     res.render('index', {
       title: 'home',
       articles: articles
@@ -17,10 +16,10 @@ router.get('/', function (req, res, next) {
   });
 });
 
+
 //增加RESTful api
 router.get('/user', function (req, res, next) {
   Article.find(function (err, articles) {
-    if (err) return next(err);
     res.render('index', {
       title: 'get',
       articles: articles
@@ -30,7 +29,6 @@ router.get('/user', function (req, res, next) {
 
 router.post('/user', function (req, res, next) {
   Article.find(function (err, articles) {
-    if (err) return next(err);
     res.render('index', {
       title: 'post',
       articles: articles
@@ -49,6 +47,46 @@ router.delete('/user', function (req, res, next) {
 });
 
 router.put('/user', function (req, res, next) {
+  Article.find(function (err, articles) {
+    if (err) return next(err);
+    res.render('index', {
+      title: 'put',
+      articles: articles
+    });
+  });
+});
+
+
+//blogs API
+router.get('/blog', function (req, res, next) {
+  Article.find(function (err, articles) {
+    res.render('index', {
+      title: 'get',
+      articles: articles
+    });
+  });
+});
+
+router.post('/blog', function (req, res, next) {
+  Article.find(function (err, articles) {
+    res.render('index', {
+      title: 'post',
+      articles: articles
+    });
+  });
+});
+
+router.delete('/blog', function (req, res, next) {
+  Article.find(function (err, articles) {
+    if (err) return next(err);
+    res.render('index', {
+      title: 'delete',
+      articles: articles
+    });
+  });
+});
+
+router.put('/blog', function (req, res, next) {
   Article.find(function (err, articles) {
     if (err) return next(err);
     res.render('index', {

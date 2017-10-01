@@ -27,7 +27,7 @@ var config = {
       name: 'nodeblog'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/nodeblog-production'
+    db: 'mongodb://localhost/nodeblog'
   }
 };
 
