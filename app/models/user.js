@@ -3,16 +3,16 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
-var ArticleSchema = new Schema({
-  title: String,
-  url: String,
+var UserSchema = new Schema({
+  userId: String,
+  userName: String,
   text: String
 });
 
-ArticleSchema.virtual('date')
+UserSchema.virtual('date')
   .get(function(){
     return this._id.getTimestamp();
   });
 
-mongoose.model('Article', ArticleSchema);
+mongoose.model('User', UserSchema);
 
