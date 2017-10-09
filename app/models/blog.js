@@ -4,16 +4,16 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var BlogSchema = new Schema({
-  title: {type: String, required: true},
-  context: {type: String, required: true},
-  author: {type: Schema.Types.ObjectId},
-  slug: {type: String, required: true},
-  category: {type: Schema.Types.ObjectId},
+  title: String,
+  context: String,
+  author: {type: Schema.Types.ObjectId, ref: 'user'},
+  slug: String,
+  category: {type: Schema.Types.ObjectId, ref: 'category'},
   meta: {like: Number, diss: Number},
   created: { type: Date, default:Date.now },
   modfied: { type: Date, default:Date.now },
   published: {type: Boolean, default: false},
-  comments: {type: Schema.Types.Mixed}
+  comments: [{type: Schema.Types.ObjectId, ref: 'comment'}]
 });
 
 BlogSchema.virtual('date')
