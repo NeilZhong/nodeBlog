@@ -5,10 +5,9 @@ Schema = mongoose.Schema;
 
 var CommentSchema = new Schema({
 context: String,
-author: {type: Schema.Types.ObjectId, ref: 'user'},
+author: {type: Schema.Types.ObjectId, ref: 'User'},
 meta: {like: Number, diss: Number},
-created: { type: Date, default:Date.now },
-published: {type: Boolean, default: false}
+created: { type: Date, default:Date.now }
 });
 
 CommentSchema.virtual('date')

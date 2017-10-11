@@ -2,33 +2,30 @@ var express = require('express'),
   router = express.Router(),
   mongoose = require('mongoose'),
   Blog = mongoose.model('Blog');
+  User = mongoose.model('User');
 
 module.exports = function (app) {
   app.use('/', router);
 };
 
 router.get('/', function (req, res, next) {
-  Article.find(function (err, articles) {
-    res.render('index', {
-      title: 'home',
-      articles: articles
-    });
-  });
+
 });
 
 
 //增加RESTful api
 router.get('/user', function (req, res, next) {
-  Article.find(function (err, articles) {
+  User.find(function (err, user) {
+    return res.jsonp(user);
     res.render('index', {
       title: 'get',
-      articles: articles
+      user: user
     });
   });
 });
 
 router.post('/user', function (req, res, next) {
-  Article.find(function (err, articles) {
+  User.find(function (err, user) {
     res.render('index', {
       title: 'post',
       articles: articles
@@ -37,21 +34,22 @@ router.post('/user', function (req, res, next) {
 });
 
 router.delete('/user', function (req, res, next) {
-  Article.find(function (err, articles) {
+  User.find(function (err, user) {
     if (err) return next(err);
+    return res.jsonp(user);
     res.render('index', {
       title: 'delete',
-      articles: articles
+      user: user
     });
   });
 });
 
 router.put('/user', function (req, res, next) {
-  Article.find(function (err, articles) {
+  User.find(function (err, user) {
     if (err) return next(err);
     res.render('index', {
       title: 'put',
-      articles: articles
+      user: user
     });
   });
 });
@@ -59,11 +57,9 @@ router.put('/user', function (req, res, next) {
 
 //blogs API
 router.get('/blog', function (req, res, next) {
-  Article.find(function (err, articles) {
-    res.render('index', {
-      title: 'get',
-      articles: articles
-    });
+  Blog.find().populate('author').populate('category').populate('comments').exec(function(err,blogs){
+    if (err) return next(err);
+    return res.jsonp(blogs);
   });
 });
 

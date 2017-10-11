@@ -5,7 +5,8 @@ Schema = mongoose.Schema;
 
 var CategorySchema = new Schema({
 name: String,
-slug: String
+slug: String,
+created: { type: Date, default:Date.now }
 });
 
 CategorySchema.virtual('date')
