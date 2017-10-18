@@ -14,14 +14,11 @@ router.get('/', function (req, res, next) {
 
 
 //增加RESTful api
-router.get('/user', function (req, res, next) {
-  User.find(function (err, user) {
-    return res.jsonp(user);
-    res.render('index', {
+router.get('/admin', function (req, res, next) {
+
+    res.render('admin/index', {
       title: 'get',
-      user: user
     });
-  });
 });
 
 router.post('/user', function (req, res, next) {
@@ -58,8 +55,10 @@ router.put('/user', function (req, res, next) {
 //blogs API
 router.get('/blog', function (req, res, next) {
   Blog.find().populate('author').populate('category').populate('comments').exec(function(err,blogs){
-    if (err) return next(err);
-    return res.jsonp(blogs);
+    res.render('index', {
+      title: 'Blogs',
+      blogs: blogs
+    });
   });
 });
 
